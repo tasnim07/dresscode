@@ -1,0 +1,17 @@
+*.py[cod]
+__pycache__/
+*.sw[po]
+*.log
+*.pid
+*.env
+*.pkl
+*.venv
+*.out
+*.json
+*.csv
+*.ipynb
+.ipynb_checkpoints
+logs/
+staticfiles/
+media/
+local_settings.py
