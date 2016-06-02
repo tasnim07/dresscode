@@ -82,17 +82,12 @@ WSGI_APPLICATION = 'dresscode.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': local_settings.DATABASE_NAME,
-        'USER': local_settings.DATABASE_USER,
-        'PASSWORD': local_settings.DATABASE_PASSWORD,
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
+try:
+    from local_settings import DATABASES
+except ImportError:
+    import dj_database_url
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
