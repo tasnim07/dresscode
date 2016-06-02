@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'social.apps.django_app.default',
     'django_extensions',
 ]
 
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -79,12 +82,12 @@ WSGI_APPLICATION = 'dresscode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': local_settings.DATABASE_NAME,
         'USER': local_settings.DATABASE_USER,
         'PASSWORD': local_settings.DATABASE_PASSWORD,
         'HOST': 'localhost',
-        'PORT':'',
+        'PORT': '',
     }
 }
 
@@ -108,6 +111,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = local_settings.FACEBOOK_APP_ID
+SOCIAL_AUTH_FACEBOOK_SECRET = local_settings.FACEBOOK_APP_SECRET
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -126,3 +138,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/app/callback/'
