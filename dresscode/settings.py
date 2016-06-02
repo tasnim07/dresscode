@@ -138,6 +138,14 @@ CORS_ORIGIN_WHITELIST = (
 # For development purposes, all all
 CORS_ORIGIN_ALLOW_ALL = True
 
+# REST Configuration
+# ------------------------------------------------------------------------------
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
