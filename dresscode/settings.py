@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'app',
     'social.apps.django_app.default',
     'django_extensions',
+    'rest_framework_swagger',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -97,16 +99,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 
@@ -133,6 +135,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CORS Configuration
+# ------------------------------------------------------------------------------
+CORS_ORIGIN_WHITELIST = (
+    'localhost',
+)
+# For development purposes, all all
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
