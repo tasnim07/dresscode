@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'dresscode.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': DATABASE_NAME,
-        'USER': DATABASE_USER,
-        'PASSWORD': DATABASE_PASSWORD,
+        'NAME': local_settings.DATABASE_NAME,
+        'USER': local_settings.DATABASE_USER,
+        'PASSWORD': local_settings.DATABASE_PASSWORD,
         'HOST': 'localhost',
         'PORT': '',
     }
